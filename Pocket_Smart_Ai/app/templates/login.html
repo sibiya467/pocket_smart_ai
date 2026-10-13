@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card narrow">
+
+    <h1>
+        Login
+    </h1>
+
+    {% if message %}
+
+    <p>
+        {{ message }}
+    </p>
+
+    {% endif %}
+
+
+    <form
+        onsubmit="return submitLogin(event)"
+    >
+
+        <label>
+
+            Email
+
+            <input
+                id="email"
+                type="email"
+                required
+            >
+
+        </label>
+
+
+        <label>
+
+            Password
+
+            <input
+                id="password"
+                type="password"
+                required
+            >
+
+        </label>
+
+
+        <button
+            class="btn"
+            type="submit"
+        >
+            Login
+        </button>
+
+    </form>
+
+
+    <p>
+
+        No account?
+
+        <a href="/register">
+            Register
+        </a>
+
+    </p>
+
+</div>
+
+{% endblock %}

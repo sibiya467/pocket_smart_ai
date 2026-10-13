@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card">
+
+    <h1>
+        Home Interior Budget Planner
+    </h1>
+
+
+    <form id="plannerForm">
+
+        <label>
+
+            Budget (₹)
+
+            <input
+                name="budget"
+                type="number"
+                min="1"
+                required
+            >
+
+        </label>
+
+
+        <label>
+
+            Rooms
+
+            <input
+                name="rooms"
+                placeholder="Living Room, Bedroom"
+                required
+            >
+
+        </label>
+
+
+        <label>
+
+            Style
+
+            <input
+                name="style"
+                placeholder="Modern, Minimal"
+                required
+            >
+
+        </label>
+
+
+        <label>
+
+            Items JSON
+
+            <input
+                name="items"
+                value='{"lights":2,"fans":1,"table":1}'
+            >
+
+        </label>
+
+
+        <label>
+
+            Notes
+
+            <textarea
+                name="notes"
+            ></textarea>
+
+        </label>
+
+
+        <button
+            class="btn"
+            type="submit"
+        >
+            Generate Recommendations
+        </button>
+
+    </form>
+
+
+    <div id="result"></div>
+
+</div>
+
+
+<script>
+
+document
+    .getElementById("plannerForm")
+    .addEventListener(
+        "submit",
+        event => sendPlanner(
+            event,
+            "/generate-home",
+            "home"
+        )
+    );
+
+</script>
+
+{% endblock %}
